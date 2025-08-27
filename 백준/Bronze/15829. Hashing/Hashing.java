@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class Main {
     static long number = 1;
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+    static long mod = 1234567891;
     public static void main(String[] args) throws IOException {
         int n = Integer.parseInt(br.readLine());
         String str = br.readLine();
@@ -15,7 +15,8 @@ public class Main {
         for (char c : str.toCharArray()) {
             long charNum = c - 'a' + 1;
             total += charNum * number;
-            number*=31;
+            total %= mod;
+            number = ((number%mod)*31)%mod;
         }
         System.out.println(total);
     }
